@@ -1,0 +1,5 @@
+Mi nombre Edgar Alvarez,
+Ingeniero de sistemas y computación
+con experiencia en desarrollo web con ASP.NET,
+tengo 26 años,
+soy de Cali
