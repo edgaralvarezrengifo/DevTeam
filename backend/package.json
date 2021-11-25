@@ -1,0 +1,19 @@
+{
+  "name": "devteam",
+  "version": "1.0.0",
+  "description": "aplicación web para gestión de proyectos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edgaralvarezrengifo/DevTeam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edgaralvarezrengifo/DevTeam/issues"
+  },
+  "homepage": "https://github.com/edgaralvarezrengifo/DevTeam#readme"
+}
