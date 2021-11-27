@@ -1,10 +1,12 @@
 {
   "name": "devteam",
   "version": "1.0.0",
+  "type": "module",
   "description": "aplicación web para gestión de proyectos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/edgaralvarezrengifo/DevTeam/issues"
   },
-  "homepage": "https://github.com/edgaralvarezrengifo/DevTeam#readme"
+  "homepage": "https://github.com/edgaralvarezrengifo/DevTeam#readme",
+  "dependencies": {
+    "graphql-yoga": "^1.18.3",
+    "mongoose": "^6.0.13",
+    "nodemon": "^2.0.15"
+  }
 }
