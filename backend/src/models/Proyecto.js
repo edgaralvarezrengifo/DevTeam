@@ -1,0 +1,36 @@
+import pkg from 'mongoose';
+const { Schema, model } = pkg;
+
+//import {Schema, model} from "mongoose";
+
+const ProyectoSchema = new Schema({
+    estado:{
+        type: String,
+        required: true
+    },
+    fase: {
+        type: String,
+        required: true
+    }, 
+    nombre_proyecto: {
+        type: String,
+        required: true
+    },
+    objetivos_generales: {
+        type: String,
+        required: true
+    },
+    objetivos_especificos: {
+        type: String,
+        required: true
+    },
+    presupuesto: {
+        type: Number,
+        required: true
+    },
+    encargado:{
+        type: String,
+        required: true
+    }
+});
+export default model("Proyectos",ProyectoSchema )
