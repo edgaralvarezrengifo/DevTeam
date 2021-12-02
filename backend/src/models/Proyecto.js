@@ -18,11 +18,11 @@ const ProyectoSchema = new Schema({
     },
     objetivos_generales: {
         type: String,
-        required: true
+        required: false
     },
     objetivos_especificos: {
         type: String,
-        required: true
+        required: false
     },
     presupuesto: {
         type: Number,

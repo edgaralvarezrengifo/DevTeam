@@ -9,12 +9,6 @@ const Query = {
     proyectos: async () => {
         return await Proyecto.find()
     },
-    productos: async () => {
-        return await Producto.find()
-    },
-    personas: async () => {
-        return await Persona.find()
-    },
 }
 
 export default Query;
