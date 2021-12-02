@@ -6,7 +6,7 @@ const Query = {
     },
     user: async () => {
         return await User.find()
-    },
+    }
 }
 
 export default Query;

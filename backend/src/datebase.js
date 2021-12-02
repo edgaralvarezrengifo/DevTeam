@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb+srv://public:devteam@db-ciclo4.isj20.mongodb.net/admin?authSource=admin&replicaSet=atlas-zdpxi4-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true", {
+mongoose.connect("mongodb+srv://public:devteam@db-ciclo4.isj20.mongodb.net/Ciclo_4?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

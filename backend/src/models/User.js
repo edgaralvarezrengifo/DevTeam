@@ -1,7 +1,11 @@
 import mongoose from 'mongoose'
 const {Schema, model} = mongoose;
 
-const PersonaModel = new Schema({
+const User = new Schema({
+    id:{
+        type: String,
+        required: true
+    },
     name:{
         type: String,
         required: true
@@ -24,8 +28,8 @@ const PersonaModel = new Schema({
     },
     rol:{
         type: String,
-        required: true
+        required: false
     }
 });
 
-export default model('PersonaModel', PersonaModel);
+export default model('User', User);
