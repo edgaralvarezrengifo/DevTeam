@@ -12,12 +12,6 @@ const Query = {
         schema.path('estados_usuarios');
        console.log(await User.find({}).populate({ path: 'status', model: 'user_state' }))
         //return await User.find().populate('status','estado')
-    },
-    userr: async () => {
-        const schema = new Schema();
-        schema.path('estados_usuarios');
-       console.log(await User.find({}).populate({ path: '_id', model: 'User' }))
-        //return await User.find().populate('status','estado')
     }
 }
 
