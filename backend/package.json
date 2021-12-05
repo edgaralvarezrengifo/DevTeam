@@ -1,24 +1,26 @@
 {
-  "name": "backend",
-  "type": "module",
+  "name": "devteam",
   "version": "1.0.0",
+  "type": "module",
+  "description": "aplicación web para gestión de proyectos",
   "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edgaralvarezrengifo/DevTeam.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edgaralvarezrengifo/DevTeam/issues"
+  },
+  "homepage": "https://github.com/edgaralvarezrengifo/DevTeam#readme",
   "dependencies": {
     "graphql-yoga": "^1.18.3",
-    "mongoose": "^6.0.13"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/node": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
+    "mongoose": "^6.0.13",
     "nodemon": "^2.0.15"
-  },
-  "description": ""
+  }
 }
