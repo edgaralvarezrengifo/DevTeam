@@ -1,23 +1,30 @@
 type Query {
     hola: String!
     user: [User!]
+    userr: [user_state!]
     allUser(last:Int):[User!]
 }
 
 type Mutation{
     createUser(name: String!, email: String!, status: String!, user: String!, password: String!, rol: String!):User
     updateUser(_id:ID, name:String!, email: String!): User!
-    deleteUser(id:ID!): User!
+    deleteUser(_id:ID!): String!
 }
 
 type User {
     _id: ID!
     name: String!
     email: String!
-    status: String!
+    status: ID!
     user: String!
     password: String!
     rol: String!
+}
+
+type user_state {
+    _id: ID!
+    estado: String!,
+    status: String!
 }
 
 type Subscription{

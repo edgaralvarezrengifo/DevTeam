@@ -1,13 +1,13 @@
 const { Schema, model } = require('mongoose');
 
 const CategoriaSchema = Schema({
-    status: {
-        type: String,
+    estado: {
+        type: Schema.Types.ObjectId,
         require: true
     }
 }, 
 {
-    collection: 'EstadoUsuario'
+    collection: 'status'
 });
 
-module.exports = model('status', CategoriaSchema);
+export default model('user_state', CategoriaSchema);
