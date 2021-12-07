@@ -13,10 +13,13 @@ type Mutation{
 
     createProyecto(estado: String!,fase: String!,nombre_proyecto: String!,objetivos_generales: String!,objetivos_especificos: String!,presupuesto: Int!,encargado: String!):Proyectos
     updateFaseProyecto(_id:ID, fase:String!): Proyectos!
+    updateProyecto(_id:ID, nombre_proyecto: String!,objetivos_generales: String!,objetivos_especificos: String!): Proyectos!
+    updateEstadoProyecto(_id:ID, estado:String!): Proyectos!
 
     deleteProyecto(id:ID!): Proyectos!
     createUser(name: String!, email: String!, status: String!, user: String!, password: String!, rol: String!):User
     updateUser(_id:ID, name:String!, email: String!): User!
+    updateUserStatus(_id:ID, status:String!): User!
     deleteUser(_id:ID!): String!
     
 }
