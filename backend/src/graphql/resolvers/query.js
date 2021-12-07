@@ -14,7 +14,10 @@ const Query = {
         return await Proyecto.find()
     },
     user: async () => {
-        return await User.find()
+        return await User.find().populate({ path: "status" , model:'Estados_usuarios'})
+
+       // return await User.find().populate('status','estados_usuario')
+        //return await User.find({}).populate({ path: 'status', model: 'estados_usuarios' })
     },
     estados_proyecto:async () => {
         return await Estados_proyecto.find()

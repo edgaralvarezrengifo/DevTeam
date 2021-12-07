@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import Estados_usuarios from "./Estados_usuario.js"
 const {Schema, model} = mongoose;
 
 const User = new Schema({
@@ -15,7 +16,8 @@ const User = new Schema({
         required: true    
     },
     status:{
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref:'Estados_usuarios',
         required: true
     },
     user:{

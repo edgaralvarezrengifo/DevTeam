@@ -5,8 +5,7 @@ const { Schema, model } = pkg;
 
 const Estados_usuarioSchema = new Schema({
     estado:{
-        type: String,
-        required: true
+        type: String
     }
   
 });
