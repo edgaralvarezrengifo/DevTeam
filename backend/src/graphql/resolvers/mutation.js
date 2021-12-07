@@ -22,6 +22,10 @@ const Mutation = {
         User.id="asdasd";
         await User.updateOne({_id},{$set: {name, email}}); // no se a que asignarle este valor, que es donde se hace el update
         return await User.findById(_id);
+    },
+    deleteUser: async(_,{_id})=>{
+        await User.findByIdAndDelete({_id})
+        return "Delete successful"
     }
 
 

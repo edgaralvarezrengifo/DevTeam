@@ -1,8 +1,7 @@
-import {server} from "./server.js";
-import "./datebase.js";
+import {server} from "./server.js"
+import "./database.js"
 
-server.start({port:4300}, ({port})=>{
-    console.log("puerto levantado en ", port);
-});
-
-console.log("Levantamiento de BD")
+server.start({port:4000}, ({port})=>{
+    console.log("El servicio está em el puerto", port);
+})
+console.log("hola")

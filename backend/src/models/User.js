@@ -2,6 +2,10 @@ import mongoose from 'mongoose'
 const {Schema, model} = mongoose;
 
 const User = new Schema({
+    id:{
+        type: String,
+        required: true
+    },
     name:{
         type: String,
         required: true
@@ -11,9 +15,8 @@ const User = new Schema({
         required: true    
     },
     status:{
-        type: Schema.Types.ObjectId,
-        ref:'estados_usuarios',
-        require: true
+        type: String,
+        required: true
     },
     user:{
         type: String,
