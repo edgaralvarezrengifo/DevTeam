@@ -14,7 +14,10 @@ const Query = {
         return await Proyecto.find()
     },
     user: async () => {
-        return await User.find()
+        const schema = new Schema();
+        schema.path('estados_usuarios');
+      // console.log(await User.find({}).populate({ path: 'status', model: 'estado_usuario' }))
+        return await User.find().populate('status','estados_usuarios')
     },
     estados_proyecto:async () => {
         return await Estados_proyecto.find()

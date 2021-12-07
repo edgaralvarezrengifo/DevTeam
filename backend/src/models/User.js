@@ -12,6 +12,7 @@ const User = new Schema({
     },
     status:{
         type: Schema.Types.ObjectId,
+        ref:'estados_usuarios',
         require: true
     },
     user:{
