@@ -31,6 +31,14 @@ const ProyectoSchema = new Schema({
     encargado:{
         type: String,
         required: true
+    },
+    avance:{
+        type: String,
+        required: false
+    },
+    observaciones:{
+        type: String,
+        required: true
     }
 });
 export default model("Proyectos",ProyectoSchema )

@@ -1,9 +1,10 @@
 import Proyecto from "../../models/Proyecto.js";
+import User from "../../models/User.js";
 
 const Mutation = {
 
-    createProyecto: async (_, { estado,fase,nombre_proyecto,objetivos_generales,objetivos_especificos,presupuesto,encargado }) => {
-        const newProyecto = new Proyecto({ estado,fase,nombre_proyecto,objetivos_generales,objetivos_especificos,presupuesto,encargado })
+    createProyecto: async (_, { estado,fase,nombre_proyecto,objetivos_generales,objetivos_especificos,presupuesto,encargado, observaciones, avance }) => {
+        const newProyecto = new Proyecto({ estado,fase,nombre_proyecto,objetivos_generales,objetivos_especificos,presupuesto,encargado, observaciones, avance })
         return await newProyecto.save();
       
     },
@@ -12,7 +13,7 @@ const Mutation = {
         await Proyecto.updateOne({_id},{$set: {fase}}); 
         return await Proyecto.findById(_id);
     },
-    deleteUser: async(_,{_id})=>{
+    deleteProyecto: async(_,{_id})=>{
         await Proyecto.findByIdAndDelete({_id})
         return "Delete successful"
     },

@@ -5,12 +5,10 @@ const { Schema, model } = pkg;
 
 const Roles_usuarioSchema = new Schema({
     estado:{
-        type: String,
-        required: true
+        type: String
     },
     rol:{
-        type: String,
-        required: true
+        type: String
     }
   
 });

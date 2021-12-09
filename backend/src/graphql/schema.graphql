@@ -11,13 +11,13 @@ type Query {
 
 type Mutation{
 
-    createProyecto(estado: String!,fase: String!,nombre_proyecto: String!,objetivos_generales: String!,objetivos_especificos: String!,presupuesto: Int!,encargado: String!):Proyectos
+    createProyecto(estado: String!,fase: String!,nombre_proyecto: String!,objetivos_generales: String!,objetivos_especificos: String!,presupuesto: Int!,encargado: String!, observaciones: String!, avance: String!):Proyectos
     updateFaseProyecto(_id:ID, fase:String!): Proyectos!
-    updateProyecto(_id:ID, nombre_proyecto: String!,objetivos_generales: String!,objetivos_especificos: String!): Proyectos!
+    updateProyecto(_id:ID, nombre_proyecto: String!,objetivos_generales: String,objetivos_especificos: String): Proyectos!
     updateEstadoProyecto(_id:ID, estado:String!): Proyectos!
 
-    deleteProyecto(id:ID!): Proyectos!
-    createUser(name: String!, email: String!, status: String!, user: String!, password: String!, rol: String!):User
+    deleteProyecto(_id:ID!): String!
+    createUser(name: String!, email: String!, status: ID!, user: String!, password: String!, rol: ID!):User
     updateUser(_id:ID, name:String!, email: String!): User!
     updateUserStatus(_id:ID, status:String!): User!
     deleteUser(_id:ID!): String!
@@ -33,6 +33,8 @@ type Proyectos {
     objetivos_especificos: String!
     presupuesto: Int!
     encargado: String!
+    avance:String
+    observaciones: String
 }
 
 type Estados_proyectos {
@@ -46,8 +48,8 @@ type Estados_usuarios {
 }
 type Roles_usuarios {
     _id: ID!
-    estado: String!
-    rol: String!
+    estado: String
+    rol: String
 }
 
 type Fase_proyecto {
@@ -62,7 +64,7 @@ type User {
     status: Estados_usuarios!
     user: String!
     password: String!
-    rol: String!
+    rol: Roles_usuarios!
 }
 
 

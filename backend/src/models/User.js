@@ -3,10 +3,6 @@ import Estados_usuarios from "./Estados_usuario.js"
 const {Schema, model} = mongoose;
 
 const User = new Schema({
-    id:{
-        type: String,
-        required: true
-    },
     name:{
         type: String,
         required: true
@@ -29,8 +25,9 @@ const User = new Schema({
         required: true
     },
     rol:{
-        type: String,
-        required: false
+        type: Schema.Types.ObjectId,
+        ref:'Roles_usuarios',
+        required: true
     }
 });
 
