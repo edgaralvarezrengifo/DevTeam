@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.5.6",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -47,5 +48,4 @@
   },
   "description": "Aplicación web que permita controlar las ventas físicas y virtuales de una empresa de manufactura y hacerles el correspondiente seguimiento.\r Cada uno de los integrantes hemos creado una cuenta y hemos clonado el repositorio en nuestros equipos locales para empezar a aportar al proyecto.\r Se han creado los branches en el repositorio develop y release.",
   "main": "index.js"
-  
 }

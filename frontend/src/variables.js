@@ -1,15 +1,14 @@
 
-/*
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCEOzhWd_nQlYea3XL18ijzz2PLR0U-uGo",
-  authDomain: "misiontic-d982c.firebaseapp.com",
-  databaseURL: "https://misiontic-d982c-default-rtdb.firebaseio.com",
-  projectId: "misiontic-d982c",
-  storageBucket: "misiontic-d982c.appspot.com",
-  messagingSenderId: "824383049695",
-  appId: "1:824383049695:web:a135a91e0a26b8acb87e6a",
-  measurementId: "G-F6L3ZE8Y9R"
+  apiKey: "AIzaSyDNRmP-hiwe471tVNXz9glkgYu6bxhx25A",
+  authDomain: "misionticciclo4-add1c.firebaseapp.com",
+  projectId: "misionticciclo4-add1c",
+  storageBucket: "misionticciclo4-add1c.appspot.com",
+  messagingSenderId: "611248062774",
+  appId: "1:611248062774:web:fdabd778bc376a4b9f7397",
+  measurementId: "G-WRCCJMZZ6K"
 };
   export default firebaseConfig
-  */
+  
