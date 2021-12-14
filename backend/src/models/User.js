@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import Estados_usuarios from "./Estados_usuario.js"
+import Roles_usuarios from "./Roles_usuarios.js"
 const {Schema, model} = mongoose;
 
 const User = new Schema({

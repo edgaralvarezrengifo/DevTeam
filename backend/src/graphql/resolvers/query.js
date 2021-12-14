@@ -4,7 +4,7 @@ import User from "../../models/User.js"
 import Estados_proyecto from "../../models/Estados_proyecto.js"
 import Estados_usuarios from "../../models/Estados_usuario.js"
 import Fase_proyecto from "../../models/Fase_proyecto.js"
-import Roles_usuario from "../../models/Roles_usuarios.js"
+import Roles_usuarios from "../../models/Roles_usuarios.js"
 const Query = {
 
     hola() {
@@ -14,7 +14,7 @@ const Query = {
         return await Proyecto.find()
     },
     user: async () => {
-        return await User.find().populate({ path: "status" , model:'Estados_usuarios'})//.populate({ path: "rol" , model:'Roles_usuarios'})
+        return await User.find().populate({ path: "status" , model:'Estados_usuarios'}).populate({ path: "rol" , model:'Roles_usuarios'})
 
        // return await User.find().populate('status','estados_usuario')
         //return await User.find({}).populate({ path: 'status', model: 'estados_usuarios' })
@@ -29,7 +29,7 @@ const Query = {
         return await Fase_proyecto.find()
     },
     roles_usuario:async () => {
-        return await Roles_usuario.find()
+        return await Roles_usuarios.find()
     }
 }
 
