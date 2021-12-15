@@ -1,6 +1,4 @@
 
-/*
-
 const firebaseConfig = {
   apiKey: "AIzaSyCEOzhWd_nQlYea3XL18ijzz2PLR0U-uGo",
   authDomain: "misiontic-d982c.firebaseapp.com",
@@ -12,4 +10,3 @@ const firebaseConfig = {
   measurementId: "G-F6L3ZE8Y9R"
 };
   export default firebaseConfig
-  */
