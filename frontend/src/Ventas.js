@@ -48,7 +48,7 @@ function Ventas() {
 
     async function postData() {
 
-        setListaProductos(await consultarDatabase('products'));
+        //setListaProductos(await consultarDatabase('products'));
 
     };
     const history = useHistory();
@@ -72,7 +72,7 @@ function Ventas() {
             return;
         }
         if (!user) return history.replace("/");
-        fetchUserName();
+        //fetchUserName();
         postData()
 
        handleAgregarProducto()

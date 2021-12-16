@@ -3,9 +3,11 @@ import firebaseConfig from './variables.js';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/functions';
+
 import { addDoc, collection, getDocs, query, getDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+
 
 
 // Import the functions you need from the SDKs you need
@@ -15,8 +17,21 @@ import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { ApolloClient, HttpLink, InMemoryCache, gql } from '@apollo/client'
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: new HttpLink({
+    uri: 'http://localhost:4000',
+  })
+});
+
+const consulta = gql`
+query { 
+   hola
+}
+`
+
 
 
 // Initialize Firebase
@@ -101,6 +116,12 @@ const signInWithGoogle = async () => {
 const signInWithEmailAndPassword = async (email, password) => {
     try {
       await auth.signInWithEmailAndPassword(email, password);
+      client.query({query: consulta
+      })
+      .then((response) => {
+      console.log(response.data)
+      })
+  
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -111,7 +132,8 @@ const signInWithEmailAndPassword = async (email, password) => {
     try {
       const res = await auth.createUserWithEmailAndPassword(email, password);
       const user = res.user;
-      await db.collection("users").add({
+      const uid = user.uid;
+     /* await db.collection("users").add({
         uid: user.uid,
         name,
         authProvider: "local",
@@ -119,6 +141,31 @@ const signInWithEmailAndPassword = async (email, password) => {
         rol:"vendedor",
         estado:"pendiente"
       });
+*/
+      await client.mutate({mutation: gql`
+      mutation createUser($name: String!,$email: String!, $password: String!, $uid: String!) {
+  createUser(
+    name:$name,
+    email:$email,
+    status:"61984d2558a50c9b2a89aeac",
+    user:$uid,
+    password:$password,
+    rol:"61984d2558a50c9b2a89aeac"  
+  ){
+    name
+    
+  }
+      }
+
+        `,
+        variables:{name,email,uid,password}
+  
+      })
+      .then((response) => {
+      console.log(response.data)
+      })
+
+
     } catch (err) {
       console.error(err);
       alert(err.message);
