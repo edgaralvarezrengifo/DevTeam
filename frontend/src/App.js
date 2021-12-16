@@ -8,12 +8,14 @@ import Ventas from "./Ventas";
 import ListaVentas from "./ListaVentas";
 import GestionTabla from "./GestionTabla";
 import Productos from "./Productos";
+import Users from './Components/Users/Users';
 
 function App() {
   return (
        <div className="App">
        <Router>
          <Switch>
+           <Route exact path="/Users" component={Users} />
            <Route exact path="/" component={Login} />
            <Route exact path="/register" component={Register} />
            <Route exact path="/reset" component={Reset} />

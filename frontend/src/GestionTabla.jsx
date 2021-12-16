@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import NavBarLateral from "./NavBarLateral";
-import {consultarDatabase,actualizarDocumentoDatabase } from "./firebase";
+import { consultarDatabase, actualizarDocumentoDatabase } from "./firebase";
 import editar from "./editar.png"
 import "./GestionTabla.css";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -17,17 +17,17 @@ function GestionTabla() {
 
 
 
-   const [usuarios, setUsuarios] = React.useState([]); 
-   const MySwal = withReactContent(Swal);
+  const [usuarios, setUsuarios] = React.useState([]);
+  const MySwal = withReactContent(Swal);
 
 
-  async function  postData()  {
-    
-    setUsuarios (await consultarDatabase('users'));
-      
-      setUsuarios (await consultarDatabase('users'));
-        
-    };
+  async function postData() {
+
+    setUsuarios(await consultarDatabase('users'));
+
+    setUsuarios(await consultarDatabase('users'));
+
+  };
 
 
   const [usuario, setUsuario] = React.useState({
@@ -42,18 +42,18 @@ function GestionTabla() {
   const [idCambiada, setIdCambiada] = React.useState('');
   const [idBuscada, setIdBuscada] = React.useState('');
 
-  const handleBuscador = (e) =>{
+  const handleBuscador = (e) => {
     setIdBuscada(e.target.value)
   }
 
-  const handleBotonBuscador = (e) =>{
+  const handleBotonBuscador = (e) => {
     e.preventDefault()
 
-    if(!idBuscada.trim())
+    if (!idBuscada.trim())
       return
-    
-    setUsuario(usuarios.find(us=>{
-        return us.id === idBuscada
+
+    setUsuario(usuarios.find(us => {
+      return us.id === idBuscada
     }))
 
     setIdBuscada('')
@@ -62,7 +62,7 @@ function GestionTabla() {
 
   const handleEstado = (e) => {
     setIdCambiada(usuario.id)
-    
+
     setUsuario(
       {
         id: usuario.id,
@@ -87,19 +87,19 @@ function GestionTabla() {
 
   const handleEdicionUsuario = async (e) => {
     e.preventDefault();
-   
+
     const listaTemporal = usuarios.map((item) => {
-      
-        
-        return item.id === idCambiada ? usuario : item
-       
+
+
+      return item.id === idCambiada ? usuario : item
+
     })
 
-    let data=listaTemporal.find((item)=>{
+    let data = listaTemporal.find((item) => {
       return item.id === idCambiada
     })
 
-    actualizarDocumentoDatabase("users",usuario.id,data);
+    actualizarDocumentoDatabase("users", usuario.id, data);
     setUsuarios(listaTemporal)
     await MySwal.fire({
       title: <strong>Exito!</strong>,
@@ -111,7 +111,7 @@ function GestionTabla() {
 
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
-  const [rol,setRol] = useState("");
+  const [rol, setRol] = useState("");
   const history = useHistory();
   const fetchUserName = async () => {
     try {
@@ -134,9 +134,9 @@ function GestionTabla() {
     if (!user) return history.replace("/");
     fetchUserName();
     console.log(rol);
-    if(rol==="Vendedor") return history.replace("/");
+    if (rol === "Vendedor") return history.replace("/");
     postData()
-  }, [user,loading, history,name,rol]);
+  }, [user, loading, history, name, rol]);
 
 
 
@@ -148,11 +148,11 @@ function GestionTabla() {
         <div className="col-md-6 col-sm-10">
           <div ClassName="">
             <form ClassName="" onSubmit={handleBotonBuscador}>
-              <br/>
-              <br/>
+              <br />
+              <br />
               <h4 className="headertekst text-light">Buscar Usuario</h4>
               <div className="buscar-group input-group mb-6 " >
-                <input className="" type="text" placeholder="Busqueda por ID" onChange={handleBuscador} value={idBuscada}/>
+                <input className="" type="text" placeholder="Busqueda por ID" onChange={handleBuscador} value={idBuscada} />
                 <button className="btn btn-dark btn-outline-secondary ml-3">Buscar</button>
               </div>
             </form>
@@ -199,22 +199,22 @@ function GestionTabla() {
           <input className="form-control container" id="disabledInput" type="text" placeholder={usuario.email} disabled />
           <form>
             <div className="row">
-            <label className="form-label text-light col-4 mt-4">Estado: </label>
-            <select className="custom-select mt-4 col-7" onChange={handleEstado}>
-              <option selected hidden>{usuario.estado}</option>
-              <option value="Pendiente">Pendiente</option>
-              <option value="Autorizado">Autorizado</option>
-              <option value="No autorizado">No autorizado</option>
-            </select>
+              <label className="form-label text-light col-4 mt-4">Estado: </label>
+              <select className="custom-select mt-4 col-7" onChange={handleEstado}>
+                <option selected hidden>{usuario.estado}</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Autorizado">Autorizado</option>
+                <option value="No autorizado">No autorizado</option>
+              </select>
             </div>
-            <hr className="mb-2"/>
+            <hr className="mb-2" />
             <div className="row">
-            <label className="form-label text-light col-4">Rol:</label>
-            <select className="custom-select col-7" onChange={handleRol}>
-              <option selected hidden>{usuario.rol}</option>
-              <option value="Vendedor">Vendedor</option>
-              <option value="Administrador">Administrador</option>
-            </select>
+              <label className="form-label text-light col-4">Rol:</label>
+              <select className="custom-select col-7" onChange={handleRol}>
+                <option selected hidden>{usuario.rol}</option>
+                <option value="Vendedor">Vendedor</option>
+                <option value="Administrador">Administrador</option>
+              </select>
             </div>
             <div className="mt-4 mb-3">
               <a role="button" type="submit" className="btn btn-dark btn-outline-danger" title="Guardar edicion" onClick={handleEdicionUsuario}
@@ -244,7 +244,7 @@ function GestionTabla() {
   )
 
 
-  
+
 }
 
 export default GestionTabla
