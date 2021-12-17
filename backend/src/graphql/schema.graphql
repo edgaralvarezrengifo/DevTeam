@@ -21,6 +21,7 @@ type Mutation{
     updateUser(_id:ID, name:String!, email: String!): User!
     updateUserStatus(_id:ID, status:String!): User!
     deleteUser(_id:ID!): String!
+    findUser(email:String!): User!
     
 }
 
@@ -75,5 +76,5 @@ type Subscription{
     createUser:User!
     updateUser:User!
     deleteUser:User!
-
+    findUser: User!
 }

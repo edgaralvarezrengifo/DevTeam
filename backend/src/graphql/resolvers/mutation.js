@@ -49,8 +49,11 @@ const Mutation = {
     deleteUser: async(_,{_id})=>{
         await User.findByIdAndDelete({_id})
         return "Delete successful"
+    },
+    findUser: async(_,{email})=>{
+        console.log(await User.findOne({email}))
+        return await User.findOne({email})
     }
-
 
 }
     
