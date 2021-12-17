@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "graphql-yoga": "^1.18.3",
-    "mongoose": "^6.0.13"
+    "mongoose": "^6.0.13",
+    "react-client-session": "0.0.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
