@@ -148,8 +148,9 @@ function Users() {
                             <label className="form-label text-light col-4">Rol:</label>
                             <select className="custom-select col-7" onChange={handleRol}>
                                 <option selected hidden>{usuario.rol.rol}</option>
-                                <option value="Vendedor">Vendedor</option>
                                 <option value="Administrador">Administrador</option>
+                                <option value="Estudiante">Estudiante</option>
+                                <option value="Lider">Lider</option>
                             </select>
                         </div>
                         <div className="mt-4 mb-3">

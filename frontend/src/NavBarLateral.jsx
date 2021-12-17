@@ -63,17 +63,29 @@ function NavBarLateral() {
         
           }
           {
-          rol==="Administrador" &&
           <li className="nav-item">
             <a className="nav-link active" aria-current="page" href='../gestionusuarios'>
             <div className="boton_seccion">
-              <img src={usuario} alt="" width="25em" height="25em" />
-              <Link to="/gestionusuarios">Gestion de usuarios</Link>
+              <img className="imgDataPersonal" src={usuario} alt="" width="25em" height="25em" />
+              <Link to="/PersonalData">Datos personales </Link>
             </div>  
             </a>
             
           </li>
         }
+          {
+          rol==="Administrador" &&
+          <li className="nav-item">
+            <a className="nav-link active" aria-current="page" href='../gestionusuarios'>
+            <div className="boton_seccion">
+              <img src={usuario} alt="" width="25em" height="25em" />
+              <Link to="/Users">Gestion de usuarios</Link>
+            </div>  
+            </a>
+            
+          </li>
+        }
+        
         </ul>
 
 
