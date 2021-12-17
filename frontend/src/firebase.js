@@ -107,7 +107,9 @@ const signInWithGoogle = async () => {
         estado: "pendiente"
       });
     }
-    console.log(findUserGraphQl(user.email))
+    addUserGraphQl(user.multiFactor.user.displayName, user.email, user.uid, '123');
+    //addUserGraphQl(user.name, )
+    findUserGraphQl(user.email);
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -136,22 +138,32 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     const res = await auth.createUserWithEmailAndPassword(email, password);
     const user = res.user;
     const uid = user.uid;
+    addUserGraphQl(name, email, uid, password);
+
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+
+const addUserGraphQl = async (name, email, uid, password) => {
+  try {
     await client.mutate({
       mutation: gql`
-      mutation createUser($name: String!,$email: String!, $password: String!, $uid: String!) {
-  createUser(
-    name:$name,
-    email:$email,
-    status:"61984d2558a50c9b2a89aeac",
-    user:$uid,
-    password:$password,
-    rol:"61984d2558a50c9b2a89aeac"  
-  ){
-    name
-    
-  }
-      }
-        `,
+    mutation createUser($name: String!,$email: String!, $password: String!, $uid: String!) {
+createUser(
+  name:$name,
+  email:$email,
+  status:"61984d2558a50c9b2a89aeac",
+  user:$uid,
+  password:$password,
+  rol:"61984d2558a50c9b2a89aeac"  
+){
+  name
+  
+}
+    }
+      `,
       variables: { name, email, uid, password }
 
     })
@@ -164,7 +176,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     console.error(err);
     alert(err.message);
   }
-};
+}
 
 const findUserGraphQl = async (email) => {
   try {
