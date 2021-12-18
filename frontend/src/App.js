@@ -10,6 +10,7 @@ import GestionTabla from "./GestionTabla";
 import Productos from "./Productos";
 import Users from './Components/Users/Users';
 import PersonalData from './Components/PersonalData/PersonalData';
+import Projects from './Components/Projects/Projects';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
            <Route exact path="/register" component={Register} />
            <Route exact path="/reset" component={Reset} />
            <Route exact path="/ventas" component={Ventas} />
+           <Route exact path="/projects" component={Projects} />
            <Route exact path="/listaventas" component={ListaVentas} />
            <Route exact path="/gestionusuarios" component={GestionTabla} />
            <Route exact path="/productos" component={Productos} />

@@ -13,13 +13,9 @@ function NavBarLateral() {
   const history = useHistory();
   const fetchUserName = async () => {
     try {
-      const query = await db
-        .collection("users")
-        .where("uid", "==", user?.uid)
-        .get();
-      const data = await query.docs[0].data();
-      setName(data.name);
-      setRol(data.rol)
+     
+      setName(localStorage.getItem('name'));
+      setRol(localStorage.getItem('rol'))
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
@@ -47,7 +43,7 @@ function NavBarLateral() {
               <a className="nav-link active" aria-current="page" href='../' >
                 <div className="boton_seccion">
                   <img src={producto} alt="" width="25em" height="25em" />
-                  <Link to="/productos">Proyectos</Link>
+                  <Link to="/projects">Proyectos</Link>
                 </div>
               </a>
             </li>

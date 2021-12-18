@@ -197,6 +197,7 @@ const findUserGraphQl = async (email) => {
         console.log("userrrrr:", response.data.findUser)
         localStorage.setItem('email', response.data.findUser.email)
         localStorage.setItem('name', response.data.findUser.name)
+        localStorage.setItem('name', response.data.findUser.rol.rol)
         localStorage.setItem('_id', response.data.findUser._id)
       })
 
