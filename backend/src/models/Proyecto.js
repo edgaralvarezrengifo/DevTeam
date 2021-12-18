@@ -5,11 +5,13 @@ const { Schema, model } = pkg;
 
 const ProyectoSchema = new Schema({
     estado:{
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref:'Estados_proyectos',
         required: true
     },
     fase: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref:'Fase_proyecto',
         required: true
     }, 
     nombre_proyecto: {
@@ -29,7 +31,8 @@ const ProyectoSchema = new Schema({
         required: true
     },
     encargado:{
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref:'User',
         required: true
     },
     avance:{

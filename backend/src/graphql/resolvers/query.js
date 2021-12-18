@@ -5,6 +5,7 @@ import Estados_proyecto from "../../models/Estados_proyecto.js"
 import Estados_usuarios from "../../models/Estados_usuario.js"
 import Fase_proyecto from "../../models/Fase_proyecto.js"
 import Roles_usuarios from "../../models/Roles_usuarios.js"
+
 const Query = {
 
     hola() {
@@ -12,6 +13,9 @@ const Query = {
     },
     proyectos: async () => {
         return await Proyecto.find()
+            .populate({path: "estado", model: "Estados_proyectos"})
+            .populate({ path:"encargado" , model:"User"})
+            .populate({ path: "fase", model:"Fase_proyecto" });
     },
     user: async () => {
         return await User.find().populate({ path: "status" , model:'Estados_usuarios'}).populate({ path: "rol" , model:'Roles_usuarios'})

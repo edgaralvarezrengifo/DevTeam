@@ -11,7 +11,7 @@ type Query {
 
 type Mutation{
 
-    createProyecto(estado: String!,fase: String!,nombre_proyecto: String!,objetivos_generales: String!,objetivos_especificos: String!,presupuesto: Int!,encargado: String!, observaciones: String!, avance: String!):Proyectos
+    createProyecto(estado: ID!,fase: ID!,nombre_proyecto: String!,objetivos_generales: String!,objetivos_especificos: String!,presupuesto: Int!,encargado: ID!, observaciones: String!, avance: String!):Proyectos
     updateFaseProyecto(_id:ID, fase:String!): Proyectos!
     updateProyecto(_id:ID, nombre_proyecto: String!,objetivos_generales: String,objetivos_especificos: String): Proyectos!
     updateEstadoProyecto(_id:ID, estado:String!): Proyectos!
@@ -27,13 +27,13 @@ type Mutation{
 
 type Proyectos {
     _id: ID!
-    estado: String!
-    fase: String!
+    estado: Estados_proyectos!
+    fase: Fase_proyecto!
     nombre_proyecto: String!
     objetivos_generales: String!
     objetivos_especificos: String!
     presupuesto: Int!
-    encargado: String!
+    encargado: User!
     avance:String
     observaciones: String
 }
@@ -57,6 +57,7 @@ type Fase_proyecto {
     _id: ID!
     fase: String!
 }
+
 
 type User {
     _id: ID!
