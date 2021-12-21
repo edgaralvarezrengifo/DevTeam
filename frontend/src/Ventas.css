@@ -1,0 +1,65 @@
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css);
+.Ventas {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffff;
+  }
+  .Ventas__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #dcdcdc;
+    padding: 30px;
+  }
+  .Ventas__btn {
+    padding: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+    border: none;
+    color: white;
+    background-color: black;
+  }
+
+  .navegacion_logo{
+    display: flex;
+    align-items: flex-start;
+  }
+  .navegacion_logo img{
+    width: 140px;
+    height: 40px;
+  }
+
+
+.boton_seccion{
+  color: #dcdcdc;
+  
+}
+
+.imgDataPersonal{
+  margin-right: 8px;
+}
+
+.headertekst-ventas {
+  text-align: left;
+  margin-left: 0px !important;
+}
+  .navegacion_perfil{
+    display: flex;
+    height: 20px;
+    align-items: center;
+    margin: 0 20px;
+    border-left: 1px solid rgb(44, 57, 75);
+    padding-left: 20px;
+  }
+  .navegacion_perfil--imagen img{
+    width: 20px;
+    height: 20px;
+ 
+  }
+
+  .Ventas div {
+    margin-top: 7px;
+  }
