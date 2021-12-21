@@ -1,0 +1,81 @@
+type Query {
+    hola: String!
+    proyectos: [Proyectos!]
+    user: [User!]
+    allUser(last:Int):[User!]
+    estados_proyecto: [Estados_proyectos!]
+    estados_usuario: [Estados_usuarios!]
+    fase_proyecto: [Fase_proyecto!]
+    roles_usuario: [Roles_usuarios!]
+}
+
+type Mutation{
+
+    createProyecto(estado: ID!,fase: ID!,nombre_proyecto: String!,objetivos_generales: String!,objetivos_especificos: String!,presupuesto: Int!,encargado: ID!, observaciones: String!, avance: String!):Proyectos
+    updateFaseProyecto(_id:ID, fase:String!): Proyectos!
+    updateProyecto(_id:ID, nombre_proyecto: String!,objetivos_generales: String,objetivos_especificos: String): Proyectos!
+    updateEstadoProyecto(_id:ID, estado:String!): Proyectos!
+
+    deleteProyecto(_id:ID!): String!
+    createUser(name: String!, email: String!, status: ID!, user: String!, password: String!, rol: ID!):User
+    updateUser(_id:ID, name:String!, email: String!): User!
+    updateUserStatus(_id:ID, status:String!): User!
+    deleteUser(_id:ID!): String!
+    findUser(email:String!): User!
+    
+}
+
+type Proyectos {
+    _id: ID!
+    estado: Estados_proyectos!
+    fase: Fase_proyecto!
+    nombre_proyecto: String!
+    objetivos_generales: String!
+    objetivos_especificos: String!
+    presupuesto: Int!
+    encargado: User!
+    avance:String
+    observaciones: String
+}
+
+type Estados_proyectos {
+    _id: ID!
+    estado: String!
+}
+
+type Estados_usuarios {
+    _id: ID!
+    estado: String
+}
+type Roles_usuarios {
+    _id: ID!
+    estado: String
+    rol: String
+}
+
+type Fase_proyecto {
+    _id: ID!
+    fase: String!
+}
+
+
+type User {
+    _id: ID!
+    name: String!
+    email: String!
+    status: Estados_usuarios!
+    user: String!
+    password: String!
+    rol: Roles_usuarios!
+}
+
+
+type Subscription{
+    newProyecto:Proyectos!
+    updateProyecto:Proyectos!
+    deleteProyecto:Proyectos!
+    createUser:User!
+    updateUser:User!
+    deleteUser:User!
+    findUser: User!
+}
