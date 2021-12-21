@@ -146,6 +146,75 @@ const registerWithEmailAndPassword = async (name, email, password) => {
   }
 };
 
+const addProJectGraphQl = async (nombre_proyecto, objetivos_generales, objetivos_especificos,presupuesto, encargado) => {
+  try {
+    await client.mutate({
+      mutation: gql`
+      mutation createProyecto($nombre_proyecto: String!, $objetivos_generales: String!, $objetivos_especificos: String!,$presupuesto: String!,$encargado: String!) {
+      createProyecto(
+        estado:"6170dc6c7a7f63bad3d096f2",
+        fase:"61a9488d79410ddc694343da6",
+        nombre_proyecto:$nombre_proyecto,
+        objetivos_generales:$objetivos_generales,
+        objetivos_especificos:$objetivos_especificos,
+        presupuesto:$presupuesto,
+        encargado:$encargado
+        avance:"",
+        observaciones:"creación del proyecto"
+){
+  _id
+  nombre_proyecto
+  
+}
+    }
+      `,
+      variables: { nombre_proyecto, objetivos_generales, objetivos_especificos, presupuesto,encargado }
+
+    })
+      .then((response) => {
+        console.log(response.data)
+      })
+
+
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+
+}
+
+const UpdateProJectGraphQl = async (_id,nombre_proyecto, objetivos_generales, objetivos_especificos) => {
+  try {
+    await client.mutate({
+      mutation: gql`
+      mutation updateProyecto($_id: String!,$nombre_proyecto: String!, $objetivos_generales: String!, $objetivos_especificos: String!) {
+        updateProyecto(
+        _id:$_id,      
+        nombre_proyecto:$nombre_proyecto,
+        objetivos_generales:$objetivos_generales,
+        objetivos_especificos:$objetivos_especificos
+){
+  _id
+  nombre_proyecto
+  
+}
+    }
+      `,
+      variables: { _id,nombre_proyecto, objetivos_generales, objetivos_especificos }
+
+    })
+      .then((response) => {
+        console.log(response.data)
+      })
+
+
+  } catch (err) {
+    console.error(err);
+    //alert(err.message);
+  }
+
+}
+
 const addUserGraphQl = async (name, email, uid, password) => {
   try {
     await client.mutate({
@@ -174,7 +243,7 @@ createUser(
 
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    //alert(err.message);
   }
 }
 
@@ -189,6 +258,7 @@ const findUserGraphQl = async (email) => {
             email
             name
             _id
+            rol{_id}
           }
         }`,
       variables: { email }
@@ -197,7 +267,8 @@ const findUserGraphQl = async (email) => {
         console.log("userrrrr:", response.data.findUser)
         localStorage.setItem('email', response.data.findUser.email)
         localStorage.setItem('name', response.data.findUser.name)
-        localStorage.setItem('name', response.data.findUser.rol.rol)
+        console.log(response.data.findUser.rol)
+        localStorage.setItem('rol', response.data.findUser.rol._id)
         localStorage.setItem('_id', response.data.findUser._id)
       })
 
@@ -238,5 +309,7 @@ export {
   logout,
   consultarDatabase,
   actualizarDocumentoDatabase,
-  addDocumentoDatabase
+  addDocumentoDatabase,
+  addProJectGraphQl,
+  UpdateProJectGraphQl
 };

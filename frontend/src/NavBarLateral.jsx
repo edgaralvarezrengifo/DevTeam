@@ -62,7 +62,7 @@ function NavBarLateral() {
             </li>
           }
           {
-            rol === "Administrador" &&
+            rol === "61984cf258a50c9b2a89aeab" &&
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href='../gestionusuarios'>
                 <div className="boton_seccion">
